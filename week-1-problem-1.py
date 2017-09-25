@@ -16,6 +16,16 @@ xx, yy = np.mgrid[:height, :width]
 # Mathematical definition of a circle centered at (200,300)
 circle = (xx - (height / 2)) ** 2 + (yy - (width / 2)) ** 2
 
+## ==
+
+'''
+    Print 'circle' object before next code block. Values exceeds 8-bit unsigned
+integer limits, which is 255.
+'''
+
+circle *= 255.0 / circle.max()
+## ==
+
 # Set the intensity values
 for x in range(img.shape[0]):
     for y in range(img.shape[1]):
