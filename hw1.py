@@ -22,6 +22,9 @@
     140315025
     Faculty of Engineering, Computer Science & Engineering
     Manisa Celal Bayar University
+
+    Taken from;
+    https://github.com/beremaran/cbu-cse3113
 '''
 
 import numpy as np
