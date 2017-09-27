@@ -42,14 +42,16 @@ xx, yy = np.mgrid[:height, :width]
 # Mathematical definition of a circle centered at (200,300)
 circle = (xx - (height / 2)) ** 2 + (yy - (width / 2)) ** 2
 
-## ==
+# ==
 
 '''
     Print 'circle' object before next code block. Values exceeds 8-bit unsigned
-integer limits. So we need to map values of "circle" matrix to range of:
+integer limits, called 'overflow', So we need to map (normalize) values of
+`circle` matrix to range of:
     [0, 256)
 
-Simple example for mapping:
+## Simple example for normalizing
+(assuming both of ranges have a start value of 0)
 
     MAPPED_VALUE = VALUE * (TARGET_RANGE_MAX / CURRENT_RANGE_MAX)
 
@@ -65,7 +67,7 @@ Arduino libraries:
 '''
 
 circle *= 255.0 / circle.max()
-## ==
+# ==
 
 # Set the intensity values
 for x in range(img.shape[0]):
