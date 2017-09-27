@@ -27,6 +27,8 @@
     https://github.com/beremaran/cbu-cse3113
 '''
 
+import sys
+
 import numpy as np
 from PIL import Image
 
@@ -74,4 +76,4 @@ for x in range(img.shape[0]):
 Image.fromarray(img, 'L').show()
 
 # Save ımage directly from buffer
-Image.fromarray(img, 'L').save('circle-bad.png', 'PNG')
+Image.fromarray(img, 'L').save('{}.png'.format(sys.argv[0][:-3]), 'PNG')
