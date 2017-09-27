@@ -45,28 +45,23 @@ circle = (xx - (height / 2)) ** 2 + (yy - (width / 2)) ** 2
 # ==
 
 '''
-    Print 'circle' object before next code block. Values exceeds 8-bit unsigned
+Print 'circle' object before next code block. Values exceeds 8-bit unsigned
 integer limits, called 'overflow', So we need to map (normalize) values of
 `circle` matrix to range of:
+
     [0, 256)
 
-## Simple example for normalizing
-(assuming both of ranges have a start value of 0)
+We shall use `min-max normalization` procedure to map values that causing
+overflows. `min-max normalization` procedure defined where upper-limit of target
+range is 255 as
 
-    MAPPED_VALUE = VALUE * (TARGET_RANGE_MAX / CURRENT_RANGE_MAX)
+    p' = 255 * (p - min(I)) / (max(I) - min(I))
 
-Let's say that we want to map "6" from [0, 10] to [0, 100]:
-
-    x = 6 * (100 / 10)
-    x = 60
-
-If source or target range is not starting from zero, check map() function from
-Arduino libraries:
-
-    https://www.arduino.cc/en/Reference/Map (see Appendix)
+where I is image array, p is intensity of arbitraty pixel from image I and
+p' is the normalized pixel intensity.
 '''
 
-circle *= 255.0 / circle.max()
+circle = 255 * (circle - circle.min()) / (circle.max() - circle.min())
 # ==
 
 # Set the intensity values
