@@ -1,5 +1,11 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+
+import math
+import sys
+
+import numpy as np
+from PIL import Image
 
 '''
     This program is free software: you can redistribute it and/or modify
@@ -27,17 +33,9 @@
     https://github.com/beremaran/cbu-cse3113
 '''
 
-import sys
-import time
-import math
-
-import numpy as np
-from PIL import Image
-
 
 def run():
     """Execute program"""
-    start_time = time.time()
     im = Image.open(sys.argv[1])
     _width, _height = im.size
     width = _width * float(sys.argv[2])
@@ -82,7 +80,7 @@ def run():
 if __name__ == "__main__":
     # check argument count
     if len(sys.argv) < 1:
-        print "usage: %s FILE WIDTH_MULTIPLIER HEIGHT_MULTIPLIER" % (sys.argv[0])
+        print("usage: %s FILE WIDTH_MULTIPLIER HEIGHT_MULTIPLIER" % (sys.argv[0]))
         sys.exit()
 
     run()
