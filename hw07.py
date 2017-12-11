@@ -70,11 +70,11 @@ def run(img_path, filter_type="lowpass", filter_gain=0.1):
     f = np.fft.ifft2(f)
     f = abs(f)
 
-    Image.fromarray(f.astype(np.uint8)).save("140315025HW06.png", "PNG")
+    Image.fromarray(f.astype(np.uint8)).save("140315025HW07.png", "PNG")
 
 
 if __name__ == "__main__":
-    argparser = argparse.ArgumentParser("140315025HW06.py", description="Low-pass or high-pass filtering for images")
+    argparser = argparse.ArgumentParser("140315025HW07.py", description="Low-pass or high-pass filtering for images")
     argparser.add_argument("image_path", help="Image to be filtered")
     argparser.add_argument("filter_type", choices=["lowpass", "highpass"], help="Filter type")
     argparser.add_argument("gain", type=float, help="Filter's gain")
