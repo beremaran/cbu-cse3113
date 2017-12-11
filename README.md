@@ -14,3 +14,5 @@ While `XX` is the week number:
 * hw03.py - Histogram Equalization
 * hw03_2.py - Histogram Equalization (Completely in NumPy)
 * hw04.py - Local Histogram Equalization
+* hw05.py - Median Filter
+* hw06.py - Low-pass / High-pass Filtering
